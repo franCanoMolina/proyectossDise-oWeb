@@ -1,0 +1,142 @@
+/* --- Variables y Reset Básico --- */
+:root {
+    --main-white-color: white;
+    --main-purple-color: #9e89b8;
+    --text-color: #333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    color: var(--text-color);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    margin: 0 10px;
+}
+
+/* --- 1. Contenedor Principal (Wrapper) --- */
+/* Define la altura mínima de 100vh para ocupar toda la pantalla */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.wrapper>* {
+    padding: 20px;
+}
+
+/* --- 2. Encabezado (Header) --- */
+.page-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-header ul {
+    display: flex;
+    order: 1;
+    /* En móviles, el menú baja a una segunda fila */
+    width: 100%;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.page-header .cta-contact {
+    padding: 8px 16px;
+    background-color: var(--main-purple-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Media Query para Pantallas Grandes (Header) */
+@media screen and (min-width: 550px) {
+    .page-header ul {
+        width: auto;
+        margin-top: 0;
+    }
+
+    .page-header .cta-contact {
+        order: 1;
+        /* En escritorio, el botón va al final */
+    }
+}
+
+/* --- 3. Contenido Principal (Main) --- */
+/* flex-grow: 1 hace que este elemento ocupe todo el espacio sobrante */
+.page-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Centrado vertical */
+    align-items: center;
+    /* Centrado horizontal */
+    min-height: 350px;
+
+    /* Fondo con mezcla de color e imagen */
+    background: var(--main-purple-color) url(./city.jpg) no-repeat center / cover;
+    background-blend-mode: multiply;
+    color: var(--main-white-color);
+    text-align: center;
+}
+
+.page-main .content {
+    max-width: 600px;
+}
+
+.page-main h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Ajuste de padding en pantallas medianas */
+@media screen and (min-width: 768px) {
+    .page-main {
+        padding-left: 90px;
+        /* Ejemplo de diseño asimétrico del tutorial */
+    }
+}
+
+/* --- 4. Pie de Página (Footer) --- */
+.page-footer {
+    display: flex;
+    flex-direction: column-reverse;
+    /* En móviles, redes sociales arriba, copyright abajo */
+    align-items: center;
+    background-color: #f4f4f4;
+}
+
+.page-footer ul {
+    display: flex;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Media Query para Pantallas Grandes (Footer) */
+@media screen and (min-width: 550px) {
+    .page-footer {
+        flex-direction: row;
+        /* En escritorio, uno al lado del otro */
+        justify-content: space-between;
+    }
+
+    .page-footer ul {
+        margin-bottom: 0;
+    }
+}
