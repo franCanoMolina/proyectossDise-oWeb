@@ -638,61 +638,98 @@ h3 {
     text-decoration: underline;
 }
 
+/* ============================================
+   ESTILOS DEL BOTÓN HAMBURGUESA
+   ============================================ */
+.hamburger-btn {
+    display: none;
+    /* Oculto por defecto en desktop */
+    background: transparent;
+    border: 2px solid #000;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
 
+.hamburger-btn:hover {
+    background-color: #00BEF0;
+    color: #fff;
+}
 
-@media screen and (max-width: 1024px) {
-    /* Header */
+/* ============================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   ============================================ */
+
+/* ============================================
+   TABLET (601px - 1024px)
+   ============================================ */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+
+    /* CABECERA - Logo y título separados */
     .main-header {
-        padding: 15px 30px;
+        padding: 20px 40px;
+        justify-content: space-between;
+        /* Logo izquierda, título derecha */
     }
 
     .main-header h1 {
         font-size: 28px;
+        order: 2;
+        /* Título a la derecha */
     }
 
-    /* Navegación */
+    .logo-container {
+        width: 50px;
+        height: 50px;
+        order: 1;
+        /* Logo a la izquierda */
+    }
+
+    /* NAVEGACIÓN - Buscador debajo del menú */
     .main-nav {
-        padding: 15px 30px;
+        padding: 20px 40px;
         flex-direction: column;
         gap: 20px;
     }
 
-    .search-form {
+    /* Menú horizontal arriba */
+    .nav-menu {
+        order: 1;
         width: 100%;
+        justify-content: center;
+        gap: 40px;
     }
 
-    .nav-menu {
-        gap: 30px;
+    /* Buscador debajo */
+    .search-form {
+        order: 2;
+        width: 100%;
     }
 
     /* Hero Section */
     .hero-section {
-        margin: 20px 30px;
-        padding: 30px;
-        flex-direction: column;
+        margin: 25px 40px;
+        padding: 35px;
     }
 
     .hero-text h2 {
-        font-size: 32px;
-    }
-
-    .hero-img {
-        width: 100%;
-        height: 200px;
+        font-size: 36px;
     }
 
     /* Novedades */
     .novedades-section {
-        margin: 30px 30px;
+        margin: 35px 40px;
     }
 
     .productos-grid {
-        grid-template-columns: repeat(6, 250px);
+        grid-template-columns: repeat(6, 260px);
     }
 
-    /* Tiendas */
+    /* Tiendas - Columnas apiladas */
     .tiendas-section {
-        margin: 30px 30px;
+        margin: 35px 40px;
     }
 
     .tiendas-container {
@@ -705,68 +742,149 @@ h3 {
 
     .tiendas-mapa {
         width: 100%;
-        height: 300px;
+        height: 350px;
     }
 
-    /* Footer */
+    /* Footer - Mantener 3 columnas horizontales */
     .main-footer {
-        padding: 15px 30px;
+        padding: 20px 40px;
+        gap: 25px;
     }
 
-    /* Página Tienda */
+    /* PÁGINA TIENDA - Layout apilado */
     .tienda-layout {
-        margin: 20px 30px;
+        margin: 25px 40px;
+        flex-direction: column;
     }
 
+    .categorias-sidebar {
+        width: 100%;
+        order: 1;
+        /* Sidebar arriba */
+    }
+
+    .productos-main {
+        order: 2;
+        /* Contenido principal abajo */
+    }
+
+    /* Catálogo - 2-3 productos por fila */
     .tienda-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
     }
 }
 
-/* Tablets pequeñas (max-width: 768px) */
-@media screen and (max-width: 768px) {
-    /* Header */
+/* ============================================
+   MÓVIL (0px - 600px)
+   ============================================ */
+@media screen and (max-width: 600px) {
+
+    /* CABECERA - Todo vertical y centrado */
     .main-header {
-        padding: 12px 20px;
+        padding: 15px 20px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        text-align: center;
     }
 
     .main-header h1 {
         font-size: 24px;
+        order: 1;
     }
 
     .logo-container {
         width: 50px;
         height: 50px;
+        order: 2;
     }
 
-    /* Navegación */
+    /* OCULTAR LOGO EN PÁGINA DE PRODUCTOS (MÓVIL) */
+    body:has(.tienda-layout) .logo-container {
+        display: none;
+    }
+
+    /* NAVEGACIÓN - Menú hamburguesa */
     .main-nav {
-        padding: 12px 20px;
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+        position: relative;
     }
 
+    /* Mostrar botón hamburguesa */
+    .hamburger-btn {
+        display: block;
+        align-self: flex-start;
+        order: 1;
+    }
+
+    /* Buscador debajo del botón */
+    .search-form {
+        order: 2;
+        width: 100%;
+    }
+
+    /* Menú oculto por defecto */
     .nav-menu {
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        order: 3;
+        background-color: #A3F1FF;
+        border-radius: 10px;
+        padding: 0;
+        margin-top: 10px;
+    }
+
+    /* Menú visible cuando está activo */
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu li:last-child {
+        border-bottom: none;
     }
 
     .nav-menu a {
-        font-size: 15px;
+        display: block;
+        padding: 15px 20px;
+        font-size: 16px;
     }
 
-    /* Hero Section */
+    .nav-menu a:hover {
+        background-color: #00BEF0;
+        color: #fff;
+    }
+
+    /* Hero Section - Vertical */
     .hero-section {
-        margin: 15px 20px;
+        margin: 20px 20px;
         padding: 25px;
+        flex-direction: column;
     }
 
     .hero-text h2 {
-        font-size: 28px;
+        font-size: 26px;
         margin-bottom: 15px;
     }
 
     .hero-text p {
         font-size: 14px;
+    }
+
+    .hero-img {
+        width: 100%;
+        height: 200px;
     }
 
     /* Novedades */
@@ -775,7 +893,12 @@ h3 {
     }
 
     .novedades-section h2 {
-        font-size: 24px;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .carousel-wrapper {
+        gap: 10px;
     }
 
     .carousel-btn {
@@ -785,50 +908,87 @@ h3 {
     }
 
     .productos-grid {
-        grid-template-columns: repeat(6, 220px);
-        gap: 20px;
+        grid-template-columns: repeat(6, 200px);
+        gap: 15px;
     }
 
     .producto-card {
-        padding: 20px;
+        padding: 18px;
     }
 
     .producto-card h3 {
-        font-size: 16px;
+        font-size: 15px;
+        margin-bottom: 12px;
     }
 
     .producto-imagen {
-        height: 180px;
+        height: 160px;
+        margin-bottom: 12px;
     }
 
     .producto-descripcion {
         font-size: 12px;
+        margin-bottom: 10px;
     }
 
     .producto-precio {
-        font-size: 20px;
+        font-size: 19px;
     }
 
-    /* Tiendas */
+    /* Tiendas - Todo vertical */
     .tiendas-section {
         margin: 25px 20px;
     }
 
     .tiendas-section h2 {
-        font-size: 24px;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .tiendas-container {
+        flex-direction: column;
+    }
+
+    .tiendas-columna-izq {
+        width: 100%;
     }
 
     .tienda-form {
         flex-direction: column;
+        gap: 10px;
+    }
+
+    .tienda-input {
+        padding: 12px 18px;
+        font-size: 14px;
     }
 
     .tienda-btn {
         width: 100%;
+        padding: 12px 20px;
+        font-size: 14px;
     }
 
-    /* Footer */
+    .tiendas-lista-container {
+        padding: 20px;
+    }
+
+    .tienda-item {
+        padding: 18px;
+    }
+
+    .tienda-item p {
+        font-size: 13px;
+    }
+
+    .tiendas-mapa {
+        width: 100%;
+        height: 300px;
+    }
+
+    /* FOOTER - Todo vertical */
     .main-footer {
-        padding: 12px 20px;
+        padding: 20px 20px;
         grid-template-columns: 1fr;
         gap: 20px;
         text-align: center;
@@ -840,232 +1000,111 @@ h3 {
         justify-content: center;
     }
 
-    .footer-legal {
-        flex-direction: column;
-        gap: 15px;
+    .footer-social {
+        order: 1;
     }
 
-    /* Página Tienda */
+    .footer-brand {
+        order: 2;
+    }
+
+    .footer-legal {
+        order: 3;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .footer-social a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .footer-brand p {
+        font-size: 13px;
+    }
+
+    .footer-legal a {
+        font-size: 12px;
+    }
+
+    /* PÁGINA TIENDA - Layout vertical */
     .tienda-layout {
-        margin: 15px 20px;
+        margin: 20px 20px;
         flex-direction: column;
     }
 
     .categorias-sidebar {
         width: 100%;
-    }
-}
-
-/* Móviles (max-width: 480px) */
-@media screen and (max-width: 480px) {
-    /* Header */
-    .main-header {
-        padding: 10px 15px;
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
-    .main-header h1 {
-        font-size: 20px;
-    }
-
-    .logo-container {
-        width: 40px;
-        height: 40px;
-    }
-
-    /* Navegación */
-    .main-nav {
-        padding: 10px 15px;
-    }
-
-    .search-input {
-        padding: 10px 15px;
-        font-size: 14px;
-    }
-
-    .search-btn {
-        font-size: 18px;
-    }
-
-    .nav-menu {
-        gap: 15px;
-        font-size: 14px;
-    }
-
-    .nav-menu a {
-        font-size: 14px;
-    }
-
-    /* Hero Section */
-    .hero-section {
-        margin: 10px 15px;
         padding: 20px;
+        order: 1;
     }
 
-    .hero-text h2 {
-        font-size: 22px;
-        margin-bottom: 12px;
-    }
-
-    .hero-text p {
-        font-size: 13px;
-        line-height: 1.6;
-    }
-
-    .hero-img {
-        height: 150px;
-    }
-
-    /* Novedades */
-    .novedades-section {
-        margin: 20px 15px;
-    }
-
-    .novedades-section h2 {
-        font-size: 20px;
-        margin-bottom: 15px;
-    }
-
-    .carousel-wrapper {
-        gap: 8px;
-    }
-
-    .carousel-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 20px;
-    }
-
-    .productos-grid {
-        grid-template-columns: repeat(6, 180px);
-        gap: 15px;
-    }
-
-    .producto-card {
-        padding: 15px;
-    }
-
-    .producto-card h3 {
-        font-size: 14px;
-        margin-bottom: 10px;
-    }
-
-    .producto-imagen {
-        height: 150px;
-        margin-bottom: 10px;
-    }
-
-    .producto-descripcion {
-        font-size: 11px;
-        margin-bottom: 10px;
-    }
-
-    .producto-precio {
-        font-size: 18px;
-    }
-
-    /* Tiendas */
-    .tiendas-section {
-        margin: 20px 15px;
-    }
-
-    .tiendas-section h2 {
-        font-size: 20px;
-        margin-bottom: 15px;
-    }
-
-    .tienda-input {
-        padding: 10px 15px;
-        font-size: 14px;
-    }
-
-    .tienda-btn {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-
-    .tiendas-lista-container {
-        padding: 15px;
-    }
-
-    .tienda-item {
-        padding: 15px;
-    }
-
-    .tienda-item p {
-        font-size: 12px;
-    }
-
-    .tiendas-mapa {
-        height: 250px;
-    }
-
-    /* Footer */
-    .main-footer {
-        padding: 15px;
-        gap: 15px;
-    }
-
-    .footer-social a {
-        width: 30px;
-        height: 30px;
-        font-size: 14px;
-    }
-
-    .footer-brand p {
-        font-size: 12px;
-    }
-
-    .footer-legal a {
-        font-size: 11px;
-    }
-
-    /* Página Tienda */
-    .tienda-layout {
-        margin: 10px 15px;
-    }
-
-    .categorias-sidebar {
-        padding: 15px;
+    .productos-main {
+        order: 2;
     }
 
     .filtros-section h2 {
         font-size: 18px;
-        padding: 12px 15px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
     }
 
     .filtros-form {
-        padding: 15px;
+        padding: 20px;
+        gap: 12px;
+    }
+
+    .filtro-item {
+        font-size: 14px;
     }
 
     .info-box {
-        padding: 15px;
-    }
-
-    .tienda-card {
         padding: 20px;
+        margin-bottom: 20px;
     }
 
-    .tienda-card h3 {
-        font-size: 18px;
+    .info-box h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
     }
 
-    .tienda-imagen {
-        height: 150px;
-    }
-
-    .tienda-descripcion {
+    .info-box p {
         font-size: 13px;
     }
 
+    /* Catálogo - 1 producto por fila (vertical) */
+    .tienda-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .tienda-card {
+        padding: 25px;
+    }
+
+    .tienda-card h3 {
+        font-size: 19px;
+        margin-bottom: 15px;
+    }
+
+    .tienda-imagen {
+        height: 220px;
+        margin-bottom: 15px;
+    }
+
+    .tienda-descripcion {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
     .tienda-precio {
-        font-size: 20px;
+        font-size: 22px;
+        margin-bottom: 15px;
     }
 
     .btn-carrito {
-        padding: 12px 20px;
-        font-size: 14px;
+        padding: 13px 25px;
+        font-size: 15px;
     }
 }
