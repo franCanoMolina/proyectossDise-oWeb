@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplos desde .md</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="font-[Plus_Jakarta_Sans] h-screen">
+
+  <!-- 01. Instalación mediante CDN: ejemplo básico -->
+  <h1>Instalación mediante CDN</h1>
+
+  <!-- 01. Instalación mediante CDN: con clases -->
+  <h1 class="text-3xl font-bold text-red-500">Instalación mediante CDN</h1>
+
+  <!-- 01. Instalación mediante CLI: ejemplo -->
+  <h1 class="text-center text-white bg-red-900 p-8 font-bold text-5xl">Bienvenido a Tailwind mediante CLI</h1>
+
+  <!-- 03. Colores y Personalización: ejemplo básico -->
+  <h1 class="bg-red-900 text-white">Bienvenido a Tailwind</h1>
+
+  <!-- 03. Opacidad y Transparencia -->
+  <h1 class="bg-black/90 text-pink-900/20">Título con transparencias</h1>
+
+  <!-- 03. Agrupación de estilos -->
+  <div class="text-green-500 bg-black">
+    <p>Este texto hereda el color verde</p>
+    <p>Este también</p>
+  </div>
+
+  <!-- 03. Icono SVG (ejemplo tal cual, path mostrado parcialmente) -->
+  <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      class="w-12 h-12 fill-[#1877f2]"
+  >
+      <path d="M20 3H4a1..."></path>
+  </svg>
+
+  <!-- 04. Tipografía: ejemplos -->
+  <h1 class="text-5xl font-medium italic text-start">Textos en Tailwind</h1>
+  <p class="text-[40px]">Texto de 40 píxeles exactos</p>
+
+  <!-- 05. Box Model: ancho con fracción -->
+  <div class="text-center w-1/2 bg-amber-300">
+     <h1 class="text-5xl">Mitad de ancho</h1>
+  </div>
+
+  <!-- 05. Imágenes responsivas -->
+  <div class="w-1/2 bg-amber-300">
+      <img src="./assets/landscape.png" class="w-full" alt="Paisaje">
+  </div>
+
+  <!-- 05. Ejemplo completo: Card -->
+  <div class="w-md mx-auto my-20 border-2 border-gray-500/50 py-7 px-5 rounded-2xl space-y-8">
+    <img src="./assets/mountain_landscape.png" class="w-full h-60 object-cover rounded-md" alt="">
+    <h3 class="text-3xl font-bold my-6">¡Título Card!</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut fuga temporibus consectetur libero impedit a
+      provident sed exercitationem, praesentium quam ea accusamus voluptatem unde? Est rem quod dignissimos sint
+      tempora.
+    </p>
+    <a href="#" class="block bg-blue-600 text-white text-center py-4 rounded-full">Leer más</a>
+  </div>
+
+</body>
+</html>
