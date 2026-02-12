@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Registro - CodeCraft</title>
+</head>
+
+<body class="bg-black text-white">
+
+    <!-- Navigation -->
+    <nav class="bg-black shadow-lg fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-white text-2xl font-bold">CodeCraft</a>
+            <a href="index.html" class="text-white hover:text-gray-300 transition-colors">← Volver</a>
+        </div>
+    </nav>
+
+    <!-- Registration Section -->
+    <section class="container mx-auto px-4 py-16 mt-24">
+        <div class="max-w-md mx-auto bg-[#0a0a0a] rounded-lg p-8">
+            <h1 class="text-white text-3xl md:text-4xl font-bold mb-4 text-center">Inscríbete ahora</h1>
+            <p class="text-gray-400 text-center mb-6">Completa el formulario para comenzar tu aprendizaje</p>
+
+            <form class="space-y-4">
+                <div>
+                    <label class="text-white text-sm mb-2 block">Nombre completo</label>
+                    <input type="text"
+                        class="w-full bg-black text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-white"
+                        placeholder="Tu nombre" required>
+                </div>
+
+                <div>
+                    <label class="text-white text-sm mb-2 block">Email</label>
+                    <input type="email"
+                        class="w-full bg-black text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-white"
+                        placeholder="tu@email.com" required>
+                </div>
+
+                <div>
+                    <label class="text-white text-sm mb-2 block">Teléfono</label>
+                    <input type="tel"
+                        class="w-full bg-black text-white border border-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:border-white"
+                        placeholder="+34 600 000 000" required>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-white text-black px-8 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
+                    Enviar inscripción
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-8 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-6 mb-4">
+                <a href="#contacto" class="text-gray-300 hover:text-white transition-colors">Contacto</a>
+                <a href="#terminos" class="text-gray-300 hover:text-white transition-colors">Términos y Condiciones</a>
+                <a href="#politica" class="text-gray-300 hover:text-white transition-colors">Política</a>
+            </div>
+            <p class="text-gray-400 text-center text-sm">© 2026 CodeCraft. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
