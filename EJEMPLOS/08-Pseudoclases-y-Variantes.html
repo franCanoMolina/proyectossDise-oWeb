@@ -1,0 +1,78 @@
+<button class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2">
+    Pasa el ratÃ³n
+</button>
+
+<input type="text" placeholder="Enter your name"
+    class="border border-gray-300 rounded-md py-2 px-4 focus:outline-blue-500 focus:border-blue-500">
+
+<button class="bg-green-500 active:bg-green-800">
+    PresiÃ³name
+</button>
+
+<button disabled class="bg-blue-500 disabled:bg-gray-400 disabled:cursor-not-allowed">
+    BotÃ³n deshabilitado
+</button>
+
+<button class="bg-purple-600 hover:bg-purple-400 hover:text-black active:bg-purple-900 focus:outline-purple-500">
+    BotÃ³n interactivo
+</button>
+
+<a href="#" class="group bg-purple-600 hover:bg-purple-400 px-6 py-3 rounded-lg flex items-center gap-2">
+    <svg class="fill-white group-hover:fill-black" width="20" height="20">...</svg>
+    <span class="text-white group-hover:text-black">ContÃ¡ctame</span>
+</a>
+
+<div class="group">
+        <div class="group">
+        <div class="group-hover:text-red-500">...</div>
+    </div>
+</div>
+
+<a href="#" class="group/link bg-purple-600 hover:bg-purple-400">
+    <svg class="fill-white group-hover/link:fill-black">...</svg>
+    <span class="text-white group-hover/link:text-black">ContÃ¡ctame</span>
+</a>
+
+<figure class="w-100 rounded-3xl mx-auto my-30 relative overflow-hidden group/figure">
+    <img src="img/tailwind-workspace.png" alt="Workspace de desarrollo con Tailwind CSS"
+        class="rounded-[inherit] group-hover/figure:scale-150 group-hover/figure:rotate-6 transition-transform">
+    <div
+        class="absolute w-full h-full bg-purple-900/70 rounded-[inherit] flex items-center justify-center top-0 translate-y-full group-hover/figure:translate-y-0 transition-transform duration-500">
+        <h3 class="text-white text-3xl font-bold">Â¡Aprende Tailwind!</h3>
+    </div>
+</figure>
+
+<div class="relative w-full">
+    <input type="text" id="name" placeholder="Ingresa tu nombre"
+        class="w-full border-b border-zinc-600 p-2 px-4 focus:border-blue-600 focus:outline-none peer">
+    <label for="name"
+        class="absolute left-4 -top-5 text-sm text-blue-600 opacity-0 peer-focus:opacity-100 transition-opacity duration-200">
+        Ingresa tu nombre
+    </label>
+</div>
+
+<input placeholder=" " class="peer">
+<label class="peer-placeholder-shown:opacity-0 peer-focus:opacity-100">Nombre</label>
+
+<label class="absolute left-4 top-2 peer-focus:-top-5 peer-focus:text-sm transition-all duration-200">
+    Nombre
+</label>
+
+<label class="text-gray-500 peer-focus:text-blue-600">
+    Nombre
+</label>
+
+<input type="email" required class="border invalid:border-red-500 valid:border-green-500">
+
+<div class="focus-within:ring-2 focus-within:ring-blue-500">
+    <input type="text">
+    </div>
+
+<a href="#"
+    class="group/link bg-purple-600 hover:bg-purple-400 text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors duration-300">
+    <svg class="fill-white group-hover/link:fill-black transition-colors" width="20" height="20" viewBox="0 0 24 24">
+        <path
+            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+    </svg>
+    <span class="group-hover/link:text-black transition-colors">ContÃ¡ctame</span>
+</a>
